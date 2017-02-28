@@ -1,0 +1,114 @@
+@charset "utf-8";
+html{
+	height: 1000px;
+}
+
+body {
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
+img {
+	display: block;
+}
+
+h1 {
+	font-family: Consolas, Andale Mono, Lucida Console, Lucida Sans Typewriter, Monaco, Courier New, monospace;
+	display: inline;
+}
+
+h2 {
+	color: black;
+	font-family: Consolas, Andale Mono, Lucida Console, Lucida Sans Typewriter, Monaco, Courier New, monospace;
+	display: inline;
+}
+
+h3{
+	color: black;
+	font-family: Consolas, Andale Mono, Lucida Console, Lucida Sans Typewriter, Monaco, Courier New, monospace;
+    display: inline;
+}
+
+p {
+	color: white;
+	font-family: Consolas, Andale Mono, Lucida Console, Lucida Sans Typewriter, Monaco, Courier New, monospace;
+}
+
+a {
+	text-decoration: none;
+}
+
+td.content {
+	background-repeat: no-repeat;
+}
+
+td.side_bar {
+	vertical-align: top;
+}
+
+td.footer {
+	color: white;
+	font-family: Consolas, Andale Mono, Lucida Console, Lucida Sans Typewriter, Monaco, Courier New, monospace;
+	background-color: #000036;
+	vertical-align: bottom;
+	text-align: center;
+}
+
+td.header {
+	vertical-align: baseline;
+	background-color: #000036;
+	text-align: left;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%
+}
+
+.divbar{
+	position: absolute;
+	top:150px;
+	left:0px;
+	z-index: 2;   
+}
+
+.divs {
+	font-family: sans-serif;
+	top: 150px;
+	left: -100px;
+	z-index: 1;     
+	width: 200px;
+	height: 700px;
+	background: rgba(0, 0, 0, 0);
+	color: white;
+	margin-left: 0px;
+	position: absolute;
+}
+
+.divs p {
+	display: inline-block;
+	position: absolute;
+	right:100px;
+	z-index: 2;
+	clear: none;
+	text-align: center;
+}
+
+.divs img {
+	display: inline-block;
+	position: absolute;
+	right:10px;
+	z-index: 2;
+	clear: none;
+	text-align: center;
+}
+
+#side {
+	background: #434343;
+	width: 100%;
+	height: 100%;
+}
