@@ -2,85 +2,130 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>A Dev's Perspective -- Astronomer</title>
+<title>A Dev's Perspective</title>
 <link rel="shortcut icon" href="images/main_images/favicon.ico">
 <link href="style_sheet.css" rel="stylesheet" type="text/css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
-	$(document).ready(function(e) {   
-    	$('#side_bar').hover(function(){ //Open on hover 
-        	$('#side_bar').animate({'left':'0px'},1000);
-		},    
-		function(){ //Close when not hovered
-			$('#side_bar').animate({'left':'-100px'},1000);    
-		});
-	});
+var names = ["astronomer.png", "brachistochrone.png", "breaking_dimensions.png", "bremsstrahlung.png", "cgs.png", "cosmology.png", "iCup.png", "machiavelli.png", "minkowski.png", "scruffy_nerf_herder.png", "set_phasors_to_stun.png", "synchrotron_heartbeat.png", "worked_out.png"];
+var titles = ["Astronomer", "Brachistochrone", "Breaking Dimensions", "Bremsstrahlung", "CGS", "Cosmology", "iCup", "Machiavelli", "Minkowski", "Scruffy Nerf Herder", "Set Phasors to Stun", "Synchrotron Heartbeat", "Worked Out"]
+var i = 0;
+var press = true;
+function changeTitle(index){
+	document.getElementById('title').textContent = titles[index];
+}
+function loadOffscreen(indexLeft, indexRight){
+	document.getElementById('offscreenLeft').src = "images/comics/" + names[indexLeft];
+	document.getElementById('offscreenLeft').style.left = -Math.round(window.innerWidth * 0.6) - 100 + "px";
+	document.getElementById('offscreenLeft').style.top = Math.round(window.innerHeight * 0.3) +"px";
+	document.getElementById('offscreenLeft').style.height = Math.round(window.innerHeight * 0.6)
+	document.getElementById('offscreenRight').src = "images/comics/" + names[indexRight];
+	document.getElementById('offscreenRight').style.left = Math.round(window.innerWidth) + 100 + "px";
+	document.getElementById('offscreenRight').style.top = Math.round(window.innerHeight * 0.3) +"px";
+	document.getElementById('offscreenRight').style.height = Math.round(window.innerHeight * 0.6)
+}	
+function loadCurrent(index){
+	document.getElementById('current').src = "images/comics/" + names[index];
+	document.getElementById('current').style.left = Math.round(window.innerWidth * 0.2) + "px";
+	document.getElementById('current').style.top = Math.round(window.innerHeight * 0.3) +"px";
+	console.log(document.getElementById('current').style);
+}
+function slideTo(el, left) {
+	el.style.zIndex = 3;
+    var steps = 25;
+    var timer = 25;
+    var elLeft = parseInt(el.style.left) || 0;
+    var diff = left - elLeft;
+    var stepSize = diff / steps;
+    console.log(diff, ", ", steps);
+	
+    $(el).animate({"left": Math.round(window.innerWidth * 0.2)}, 250, "linear", afterAnimate)
+	console.log('done')
+}	
+function afterAnimate(){
+	document.getElementById('current').style.zIndex = 3;
+	document.getElementById('offscreenRight').style.zIndex = 1;
+	press = true;
+	loadCurrent(i);
+	j = i - 1;
+	if (j == -1){
+		j = 0
+	}
+	k = i + 1;
+	if (k == names.length){
+		k = names.length - 1
+	}
+	loadOffscreen(k, j);
+	changeTitle(i);
+}
+$(document).ready(function loadImages() {
+	loadCurrent(0);
+	loadOffscreen(1, 0);
+	changeTitle(0);
+});
+$(document).ready(function() {
+    $("#prev").click(function(){
+		if (press == true){
+			press = false;
+			i = i + 1;
+			if (i == names.length){
+				i = names.length - 1
+			}
+			document.getElementById('current').style.zIndex = 1;
+			slideTo(document.getElementById('offscreenLeft'), Math.round(window.innerWidth * 0.2))
+		}
+	}); 
+});
+$(document).ready(function() {
+    $("#next").click(function(){
+		if (press == true){
+			press = false;
+			i = i - 1;
+			if (i == -1){
+				i = 0
+			}
+			document.getElementById('current').style.zIndex = 1;
+			slideTo(document.getElementById('offscreenRight'), Math.round(window.innerWidth * 0.2))
+		}
+	}); 
+});
 </script>
 </head>
-<body leftmargin="0px" rightmargin="0px" topmargin="0px" bottommargin="0px" width="100%" height="100%">
-<div class="divs" id="side_bar">
-  <table border="0">
-    <tr>
-      <td><a href="index.html"><img src="images/page_icons/main_page_icon.png" alt="Home" border="0"/></a></td>
-      <td><a href="index.html">
-        <div id="Home">
-          <p><br>
-            Home</p>
-        </div>
-        </a></td>
-    </tr>
-    <tr>
-      <td><a href="http://multiversegamestudios.net"><img src="images/page_icons/game_page_icon.png" alt="Games" border="0"/></a></td>
-      <td><a href="http://multiversegamestudios.net">
-        <div id="Games">
-          <p><br>
-            Games</p>
-        </div>
-        </a></td>
-    </tr>
-    <tr>
-      <td><a href="https://www.youtube.com/user/JohnTheFreshman"><img src="images/page_icons/youtube_channel_icon.png" alt="You Tube Channel" border="0" /></a></td>
-      <td><a href="https://www.youtube.com/user/JohnTheFreshman">
-        <div id="Youtube">
-          <p><br>
-            Youtube</p>
-        </div>
-        </a></td>
-    </tr>
-    <tr>
-      <td><a href="about.html"><img src="images/page_icons/about_us_page_icon.png" alt="About Us" border="0"/></a></td>
-      <td><a href="about.html">
-        <div id="About Us">
-          <p><br>
-            About Me</p>
-        </div>
-        </a></td>
-    </tr>
-  </table>
-</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<body align="center">
+<table align="center">
+<table border="0" align="center" width="80%" height="100%" cellspacing="0">
   <tbody>
-    <tr class="header"> <a href="index.html">
-      <td colspan="4" height="150px" class="header" align="left" style="color: white;">
+    <tr id="headerRow">
+      <td colspan="3" height="10%" align="center">
       	<h1>A Dev's Perspective</h1>
       </td>
-      </a> </tr>
-    <tr class="side_bar">
-      <td class="side_bar" width="200px" height="100%">
-      	<div id="side">
-      		
-      	</div>
-      	
-      </td>
-      <td colspan="3" class="content" border="0" valign="top" align="center">
-      <a href="brachistochrone.html"><h3>[PREV]  </h3></a><h1>Astronomer</h1><a href="index.html"><h3>  [NEXT]</h3></a>
-      <img src="images/comics/astronomer.png" />
-      </td>
     </tr>
-    <tr>
-      <td height="25px" colspan="4" class="footer"><p>© John Carter 2017</p></td>
-    </tr>
+  	<tr align="center" height="7.5%" id="buttonRow">
+  		<td align="right" width="45%">
+			<input id="prev" type="button" value="Previous"/>
+  		</td>
+  		<td width="10%">
+  			
+  		</td>
+  		<td align="left" width="45%">
+  			<input id="next" type="button" value="Next"/>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td align="center" colspan="3" id="titleRow" height="7.5%">
+  			<h1 id="title">
+  			</h1>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td align="center" colspan="3" id="contentRow" height="75%">
+  		</td>
+  	</tr>
   </tbody>
 </table>
+</table>
+<img src="images/comics/astronomer.png" id="offscreenLeft" width="60%" height="60%"/>
+<img src="images/comics/astronomer.png" id="offscreenRight" width="60%" height="60%"/>
+<img src="images/comics/astronomer.png" id="current" width="60%" height="60%"/>
 </body>
 </html>
