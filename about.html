@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>A Dev's Perspective</title>
+<link rel="shortcut icon" href="images/main_images/favicon.ico">
+<link href="style_sheet.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+var names = ["astronomer.png", "brachistochrone.png", "breaking_dimensions.png", "bremsstrahlung.png", "cgs.png", "cosmology.png", "iCup.png", "machiavelli.png", "minkowski.png", "scruffy_nerf_herder.png", "set_phasors_to_stun.png", "synchrotron_heartbeat.png", "worked_out.png"];
+var titles = ["Astronomer", "Brachistochrone", "Breaking Dimensions", "Bremsstrahlung", "CGS", "Cosmology", "iCup", "Machiavelli", "Minkowski", "Scruffy Nerf Herder", "Set Phasors to Stun", "Synchrotron Heartbeat", "Worked Out"]
+var i = 0;
+var k = 1;
+var j = 0;	
+var press = true;
+$(window).on('resize', function(){
+	document.getElementById('sideLeft').style.height = Math.round(window.innerHeight);
+	document.getElementById('sideLeft').style.width = Math.round(window.innerWidth * 0.1);
+	document.getElementById('sideRight').style.height = Math.round(window.innerHeight);
+	document.getElementById('sideRight').style.width = Math.round(window.innerWidth * 0.1);
+});
+</script>
+</head>
+<body align="center">
+<table align="center" border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
+<tr width="100%" height="100%">
+<td width="15%" height="100%" id="sideLeft">
+</td>
+<td>
+<table border="0" align="center" width="80%" height="100%" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr id="headerRow">
+      <td colspan="3" =align="center">
+      	<h1>A Dev's Perspective</h1>
+      </td>
+    </tr>
+  	<tr align="center" id="buttonRow">
+  		<td align="right" width="45%">
+			<a href="index.html"><img src="images/page_icons/main_page_icon.png" id="button"></a>
+			<a href="https://www.youtube.com/user/JohnTheFreshman"><img src="images/page_icons/youtube_channel_icon.png" id="button"></a>
+			<input id="prev" type="button" value=" "/>
+  		</td>
+  		<td width="10%">
+  			
+  		</td>
+  		<td align="left" width="45%">
+  			<input id="next" type="button" value=" "/>
+			<a href="http://multiversegamestudios.net"><img src="images/page_icons/game_page_icon.png" id="button"></a>
+			<a href="about.html"><img src="images/page_icons/about_us_page_icon.png" id="button"></a>
+		  </td>
+  	</tr>
+  	<tr>
+  		<td align="center" colspan="3" id="titleRow" >
+  			<h2 id="title">
+          About Me
+  			</h2>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td align="center" colspan="3" id="contentRow" height="75%">
+        <br>
+        <br>
+        Hello! My name is John and I'm a physicist/programmer/indie game dev and this is my web-comic! These are inspired by XKCD, so yes, they are very similar, 
+        but I intend to create my own style of comic as time goes on so that they will diverge from the same style.  I'm making these in my free time, so I'm not entirely sure when new ones will be uploaded,
+        but hopefully fairly often.  Check back regularly to see if there are any new ones and I hope that you enjoy!
+  		</td>
+  	</tr>
+  </tbody>
+</table>
+</td>
+<td width="15%" height="100%" id="sideRight">
+</td>
+	</tr>
+<tr id="footerRow" colspan="3" width="100%">
+	<td colspan="3" width="100%">
+		(c) John Carter 2017
+	</td>
+</tr>
+</table>
+</body>
+</html>
