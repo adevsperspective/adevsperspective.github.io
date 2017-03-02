@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>A Dev's Perspective</title>
-<link rel="shortcut icon" href="images/main_images/favicon.ico">
+<!--<link rel="shortcut icon" href="images/main_images/favicon.ico">-->
 <link href="style_sheet.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
@@ -19,17 +19,18 @@ function changeTitle(index){
 function loadOffscreen(indexLeft, indexRight){
 	document.getElementById('offscreenLeft').src = "images/comics/" + names[indexLeft];
 	document.getElementById('offscreenLeft').style.left = -Math.round(window.innerWidth * 0.6) - 100 + "px";
-	document.getElementById('offscreenLeft').style.top = Math.round(window.innerHeight * 0.3) +"px";
-	document.getElementById('offscreenLeft').style.height = Math.round(window.innerHeight * 0.6)
+	document.getElementById('offscreenLeft').style.top = Math.round(window.innerHeight * 0.3) + "px";
+	document.getElementById('offscreenLeft').style.height = Math.round(window.innerHeight * 0.6) + "px"
 	document.getElementById('offscreenRight').src = "images/comics/" + names[indexRight];
 	document.getElementById('offscreenRight').style.left = Math.round(window.innerWidth) + 100 + "px";
-	document.getElementById('offscreenRight').style.top = Math.round(window.innerHeight * 0.3) +"px";
-	document.getElementById('offscreenRight').style.height = Math.round(window.innerHeight * 0.6)
+	document.getElementById('offscreenRight').style.top = Math.round(window.innerHeight * 0.3) + "px";
+	document.getElementById('offscreenRight').style.height = Math.round(window.innerHeight * 0.6) + "px"
 }	
 function loadCurrent(index){
 	document.getElementById('current').src = "images/comics/" + names[index];
 	document.getElementById('current').style.left = Math.round(window.innerWidth * 0.2) + "px";
-	document.getElementById('current').style.top = Math.round(window.innerHeight * 0.3) +"px";
+	document.getElementById('current').style.top = Math.round(window.innerHeight * 0.3) + "px";
+	document.getElementById('current').style.height = Math.round(window.innerHeight * 0.6) + "px"
 	console.log(document.getElementById('current').style);
 }
 function slideTo(el, left) {
@@ -172,29 +173,29 @@ $(document).ready(function() {
   <tbody>
     <tr id="headerRow">
       <td colspan="3" align="center">
-      	<h1>A Dev's Perspective</h1>
+      	<p>A Dev's Perspective</p>
       </td>
     </tr>
   	<tr align="center" id="buttonRow">
   		<td align="left" width="45%">
 			<img src="images/page_icons/main_page_icon.png" class="button" id="main">
 			<img src="images/page_icons/youtube_channel_icon.png" class="button" id="youtube">
-			<img src="images/main_images/previous_button.png" class="button" id="prev"/>
+			<img src="images/main_images/previous_button.png" class="buttonWide" id="prev"/>
   		</td>
   		<td align="right" width="45%">
-  			<img src="images/main_images/next_button.png" class="button" id="next"/>
+  			<img src="images/main_images/next_button.png" class="buttonWide" id="next"/>
 			<img src="images/page_icons/game_page_icon.png" class="button" id="games">
 			<img src="images/page_icons/about_us_page_icon.png" class="button" id="about">
 		  </td>
   	</tr>
   	<tr>
   		<td align="center" colspan="3" id="titleRow" >
-  			<h2 id="title">
-  			</h2>
+  			<p id="title">
+  			</p>
   		</td>
   	</tr>
   	<tr>
-  		<td align="center" colspan="3" id="contentRow" height="75%">
+  		<td align="center" colspan="3" id="contentRow">
   		</td>
   	</tr>
   </tbody>
