@@ -27,6 +27,12 @@ body{
 	z-index: 3;
 }
 
+.button {
+	width: auto;
+	height: 50px;
+	vertical-align: top;
+}
+
 #sideLeft { 
 	background-image: url(images/main_images/solar_system_left_grad.png);
 	background-repeat: no-repeat;
@@ -57,7 +63,7 @@ body{
 
 #contentRow {
 	vertical-align: top;
-	background: #ffffff;
+	font-size: 16pt;
 	height: 82.5%;
 }
 
@@ -65,10 +71,4 @@ body{
 	background: #000088;
 	align-self: bottom;
 	color: #ffffff;
-}
-
-#button {
-	width: 25px;
-	height: 25px;
-	vertical-align: top;
 }

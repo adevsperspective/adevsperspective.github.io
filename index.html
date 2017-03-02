@@ -75,15 +75,32 @@ $(document).ready(function loadImages() {
 	changeTitle(0);
 });
 $(document).ready(function() {
+	$("#main").click(function(){
+		location.href = "index.html"
+	});
+	$("#youtube").click(function(){
+		location.href = "https://www.youtube.com/user/JohnTheFreshman"
+	});
+	$("#games").click(function(){
+		location.href = "http://multiversegamestudios.net"
+	}); 
+    $("#about").click(function(){
+		location.href = "about.html"
+	}); 
+});
+$(document).ready(function() {
     $("#prev").click(function(){
 		if (press == true){
 			press = false;
 			i = i + 1;
 			if (i == names.length){
 				i = names.length - 1
+				press = true;
 			}
-			document.getElementById('current').style.zIndex = 1;
-			slideTo(document.getElementById('offscreenLeft'), Math.round(window.innerWidth * 0.2))
+			else{
+				document.getElementById('current').style.zIndex = 1;
+				slideTo(document.getElementById('offscreenLeft'), Math.round(window.innerWidth * 0.2))
+			}
 		}
 	}); 
 });
@@ -94,11 +111,54 @@ $(document).ready(function() {
 			i = i - 1;
 			if (i == -1){
 				i = 0
+				press = true;
 			}
-			document.getElementById('current').style.zIndex = 1;
-			slideTo(document.getElementById('offscreenRight'), Math.round(window.innerWidth * 0.2))
+			else{
+				document.getElementById('current').style.zIndex = 1;
+				slideTo(document.getElementById('offscreenRight'), Math.round(window.innerWidth * 0.2))
+			}
 		}
 	}); 
+});
+$(document).ready(function() {
+    $("#main").mouseover(function(){
+		document.getElementById('main').src = "images/page_icons/main_page_icon_hover.png"
+	}); 
+	$("#youtube").mouseover(function(){
+		document.getElementById('youtube').src = "images/page_icons/youtube_channel_icon_hover.png"
+	}); 
+	$("#prev").mouseover(function(){
+		document.getElementById('prev').src = "images/main_images/previous_button_hover.png"
+	}); 
+	$("#next").mouseover(function(){
+		document.getElementById('next').src = "images/main_images/next_button_hover.png"
+	}); 
+	$("#games").mouseover(function(){
+		document.getElementById('games').src = "images/page_icons/game_page_icon_hover.png"
+	}); 
+	$("#about").mouseover(function(){
+		document.getElementById('about').src = "images/page_icons/about_us_page_icon_hover.png"
+	}); 
+});
+$(document).ready(function() {
+    $("#main").mouseout(function(){
+		document.getElementById('main').src = "images/page_icons/main_page_icon.png"
+	}); 
+	$("#youtube").mouseout(function(){
+		document.getElementById('youtube').src = "images/page_icons/youtube_channel_icon.png"
+	}); 
+	$("#prev").mouseout(function(){
+		document.getElementById('prev').src = "images/main_images/previous_button.png"
+	}); 
+	$("#next").mouseout(function(){
+		document.getElementById('next').src = "images/main_images/next_button.png"
+	}); 
+	$("#games").mouseout(function(){
+		document.getElementById('games').src = "images/page_icons/game_page_icon.png"
+	}); 
+	$("#about").mouseout(function(){
+		document.getElementById('about').src = "images/page_icons/about_us_page_icon.png"
+	});
 });
 </script>
 </head>
@@ -111,23 +171,23 @@ $(document).ready(function() {
 <table border="0" align="center" width="80%" height="100%" cellspacing="0" cellpadding="0">
   <tbody>
     <tr id="headerRow">
-      <td colspan="3" =align="center">
+      <td colspan="3" align="center">
       	<h1>A Dev's Perspective</h1>
       </td>
     </tr>
   	<tr align="center" id="buttonRow">
-  		<td align="right" width="45%">
-			<a href="index.html"><img src="images/page_icons/main_page_icon.png" id="button"></a>
-			<a href="https://www.youtube.com/user/JohnTheFreshman"><img src="images/page_icons/youtube_channel_icon.png" id="button"></a>
-			<input id="prev" type="button" value="Previous"/>
+  		<td align="left" width="45%">
+			<img src="images/page_icons/main_page_icon.png" class="button" id="main">
+			<img src="images/page_icons/youtube_channel_icon.png" class="button" id="youtube">
+			<img src="images/main_images/previous_button.png" class="button" id="prev"/>
   		</td>
   		<td width="10%">
   			
   		</td>
-  		<td align="left" width="45%">
-  			<input id="next" type="button" value="Next"/>
-			<a href="http://multiversegamestudios.net"><img src="images/page_icons/game_page_icon.png" id="button"></a>
-			<a href="about.html"><img src="images/page_icons/about_us_page_icon.png" id="button"></a>
+  		<td align="right" width="45%">
+  			<img src="images/main_images/next_button.png" class="button" id="next"/>
+			<img src="images/page_icons/game_page_icon.png" class="button" id="games">
+			<img src="images/page_icons/about_us_page_icon.png" class="button" id="about">
 		  </td>
   	</tr>
   	<tr>

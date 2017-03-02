@@ -9,15 +9,53 @@
 <script>
 var names = ["astronomer.png", "brachistochrone.png", "breaking_dimensions.png", "bremsstrahlung.png", "cgs.png", "cosmology.png", "iCup.png", "machiavelli.png", "minkowski.png", "scruffy_nerf_herder.png", "set_phasors_to_stun.png", "synchrotron_heartbeat.png", "worked_out.png"];
 var titles = ["Astronomer", "Brachistochrone", "Breaking Dimensions", "Bremsstrahlung", "CGS", "Cosmology", "iCup", "Machiavelli", "Minkowski", "Scruffy Nerf Herder", "Set Phasors to Stun", "Synchrotron Heartbeat", "Worked Out"]
-var i = 0;
-var k = 1;
-var j = 0;	
-var press = true;
 $(window).on('resize', function(){
 	document.getElementById('sideLeft').style.height = Math.round(window.innerHeight);
 	document.getElementById('sideLeft').style.width = Math.round(window.innerWidth * 0.1);
 	document.getElementById('sideRight').style.height = Math.round(window.innerHeight);
 	document.getElementById('sideRight').style.width = Math.round(window.innerWidth * 0.1);
+});
+$(document).ready(function() {
+	$("#main").click(function(){
+		location.href = "index.html"
+	});
+	$("#youtube").click(function(){
+		location.href = "https://www.youtube.com/user/JohnTheFreshman"
+	});
+	$("#games").click(function(){
+		location.href = "http://multiversegamestudios.net"
+	}); 
+    $("#about").click(function(){
+		location.href = "about.html"
+	}); 
+});
+$(document).ready(function() {
+    $("#main").mouseover(function(){
+		document.getElementById('main').src = "images/page_icons/main_page_icon_hover.png"
+	}); 
+	$("#youtube").mouseover(function(){
+		document.getElementById('youtube').src = "images/page_icons/youtube_channel_icon_hover.png"
+	}); 
+	$("#games").mouseover(function(){
+		document.getElementById('games').src = "images/page_icons/game_page_icon_hover.png"
+	}); 
+	$("#about").mouseover(function(){
+		document.getElementById('about').src = "images/page_icons/about_us_page_icon_hover.png"
+	}); 
+});
+$(document).ready(function() {
+    $("#main").mouseout(function(){
+		document.getElementById('main').src = "images/page_icons/main_page_icon.png"
+	}); 
+	$("#youtube").mouseout(function(){
+		document.getElementById('youtube').src = "images/page_icons/youtube_channel_icon.png"
+	}); 
+	$("#games").mouseout(function(){
+		document.getElementById('games').src = "images/page_icons/game_page_icon.png"
+	}); 
+	$("#about").mouseout(function(){
+		document.getElementById('about').src = "images/page_icons/about_us_page_icon.png"
+	});
 });
 </script>
 </head>
@@ -30,29 +68,27 @@ $(window).on('resize', function(){
 <table border="0" align="center" width="80%" height="100%" cellspacing="0" cellpadding="0">
   <tbody>
     <tr id="headerRow">
-      <td colspan="3" =align="center">
+      <td colspan="3" align="center">
       	<h1>A Dev's Perspective</h1>
       </td>
     </tr>
   	<tr align="center" id="buttonRow">
-  		<td align="right" width="45%">
-			<a href="index.html"><img src="images/page_icons/main_page_icon.png" id="button"></a>
-			<a href="https://www.youtube.com/user/JohnTheFreshman"><img src="images/page_icons/youtube_channel_icon.png" id="button"></a>
-			<input id="prev" type="button" value=" "/>
+  		<td align="left" width="45%">
+			<img src="images/page_icons/main_page_icon.png" class="button" id="main">
+			<img src="images/page_icons/youtube_channel_icon.png" class="button" id="youtube">
   		</td>
   		<td width="10%">
   			
   		</td>
-  		<td align="left" width="45%">
-  			<input id="next" type="button" value=" "/>
-			<a href="http://multiversegamestudios.net"><img src="images/page_icons/game_page_icon.png" id="button"></a>
-			<a href="about.html"><img src="images/page_icons/about_us_page_icon.png" id="button"></a>
+  		<td align="right" width="45%">
+			<img src="images/page_icons/game_page_icon.png" class="button" id="games">
+			<img src="images/page_icons/about_us_page_icon.png" class="button" id="about">
 		  </td>
   	</tr>
   	<tr>
   		<td align="center" colspan="3" id="titleRow" >
   			<h2 id="title">
-          About Me
+  			About Me
   			</h2>
   		</td>
   	</tr>
@@ -64,6 +100,7 @@ $(window).on('resize', function(){
         but I intend to create my own style of comic as time goes on so that they will diverge from the same style.  I'm making these in my free time, so I'm not entirely sure when new ones will be uploaded,
         but hopefully fairly often.  Check back regularly to see if there are any new ones and I hope that you enjoy!
   		</td>
+
   	</tr>
   </tbody>
 </table>
@@ -77,5 +114,8 @@ $(window).on('resize', function(){
 	</td>
 </tr>
 </table>
+<img src="images/comics/astronomer.png" id="offscreenLeft" class="comic" width="60%" height="60%"/>
+<img src="images/comics/astronomer.png" id="offscreenRight" class="comic" width="60%" height="60%"/>
+<img src="images/comics/astronomer.png" id="current" class="comic" width="60%" height="60%"/>
 </body>
 </html>
