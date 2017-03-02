@@ -14,7 +14,7 @@ var k = 1;
 var j = 0;	
 var press = true;
 function changeTitle(index){
-	document.getElementById('title').textContent = titles[index];
+	document.getElementById('title').textContent = titles[index] + ' -- [' + (names.length - index) + ']';
 }
 function loadOffscreen(indexLeft, indexRight){
 	document.getElementById('offscreenLeft').src = "images/comics/" + names[indexLeft];
@@ -82,6 +82,41 @@ $(document).ready(function() {
 	$("#youtube").click(function(){
 		location.href = "https://www.youtube.com/user/JohnTheFreshman"
 	});
+	$("#name").click(function(){
+		var index = jQuery.inArray($(document.getElementById('search')).val(),titles);
+		if (index != -1){
+			i = index;
+			j = i - 1;
+			if (j == -1){
+				j = 0
+			}
+			k = i + 1;
+			if (k == names.length){
+				k = names.length - 1
+			}
+			loadCurrent(i);
+			loadOffscreen(k, j);
+			changeTitle(i);
+		}	
+	});
+	$("#number").click(function(){
+		var index = parseInt($(document.getElementById('search')).val());
+		index = names.length - index;
+		if (index > -1 && index < names.length){
+			i = index;
+			j = i - 1;
+			if (j == -1){
+				j = 0
+			}
+			k = i + 1;
+			if (k == names.length){
+				k = names.length - 1
+			}
+			loadCurrent(i);
+			loadOffscreen(k, j);
+			changeTitle(i);
+		}	
+	});
 	$("#games").click(function(){
 		location.href = "http://multiversegamestudios.net"
 	}); 
@@ -131,6 +166,12 @@ $(document).ready(function() {
 	$("#prev").mouseover(function(){
 		document.getElementById('prev').src = "images/main_images/previous_button_hover.png"
 	}); 
+	$("#name").mouseover(function(){
+		document.getElementById('name').src = "images/main_images/search_name_button_hover.png"
+	}); 
+	$("#number").mouseover(function(){
+		document.getElementById('number').src = "images/main_images/search_number_button_hover.png"
+	}); 
 	$("#next").mouseover(function(){
 		document.getElementById('next').src = "images/main_images/next_button_hover.png"
 	}); 
@@ -150,6 +191,12 @@ $(document).ready(function() {
 	}); 
 	$("#prev").mouseout(function(){
 		document.getElementById('prev').src = "images/main_images/previous_button.png"
+	}); 
+	$("#name").mouseout(function(){
+		document.getElementById('name').src = "images/main_images/search_name_button.png"
+	}); 
+	$("#number").mouseout(function(){
+		document.getElementById('number').src = "images/main_images/search_number_button.png"
 	}); 
 	$("#next").mouseout(function(){
 		document.getElementById('next').src = "images/main_images/next_button.png"
@@ -177,12 +224,17 @@ $(document).ready(function() {
       </td>
     </tr>
   	<tr align="center" id="buttonRow">
-  		<td align="left" width="45%">
+  		<td align="left" width="20%">
 			<img src="images/page_icons/main_page_icon.png" class="button" id="main">
 			<img src="images/page_icons/youtube_channel_icon.png" class="button" id="youtube">
 			<img src="images/main_images/previous_button.png" class="buttonWide" id="prev"/>
   		</td>
-  		<td align="right" width="45%">
+		<td align="center" width="60%">
+		<img src="images/main_images/search_name_button.png" class="buttonSearch" id="name"/>
+		<textarea id="search"></textarea>
+		<img src="images/main_images/search_number_button.png" class="buttonSearch" id="number"/>
+		</td>
+  		<td align="right" width="20%">
   			<img src="images/main_images/next_button.png" class="buttonWide" id="next"/>
 			<img src="images/page_icons/game_page_icon.png" class="button" id="games">
 			<img src="images/page_icons/about_us_page_icon.png" class="button" id="about">

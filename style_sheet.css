@@ -28,15 +28,22 @@ body{
 }
 
 .button {
-	width: 10%;
+	width: 20%;
 	height: 4vh;
 	vertical-align: top;
 }
 
 .buttonWide {
-	width: 40%;
+	width: 45%;
 	height: 4vh;
 	vertical-align: top;
+}
+
+.buttonSearch{
+	width: 20%;
+	height: 4vh;
+	vertical-align: top;
+	align: center;
 }
 
 #sideLeft { 
@@ -79,4 +86,9 @@ body{
 	background: #000088;
 	align-self: bottom;
 	color: #ffffff;
+}
+
+#search{
+	vertical-align: top;
+	width: 30%;
 }
